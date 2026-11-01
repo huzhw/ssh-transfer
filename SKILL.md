@@ -53,14 +53,23 @@ ssh -o BatchMode=yes root@192.168.80.139 "ls -l /opt/tomcat/webapps/app.war"
 
 ## 垫片安装（换机器时照做）
 
-```bat
-rem 仓内已有的三个垫片，装到 PATH 目录（跨卷只能符号链接，不能硬链接）
-cmd /c "mklink C:\Users\Administrator\.local\bin\fsend.cmd    F:\idea-workspase-skills\ssh-transfer\scripts\fsend.cmd"
-cmd /c "mklink C:\Users\Administrator\.local\bin\mvninfo.cmd   F:\idea-workspase-skills\dev-env-upgrade\scripts\mvninfo.cmd"
-cmd /c "mklink C:\Users\Administrator\.local\bin\envcheck.cmd  F:\idea-workspase-skills\dev-env-upgrade\scripts\envcheck.cmd"
+一条命令管三个垫片（幂等：链接对的不动、旧拷贝先备份成 `.bak-<时间戳>` 再替换）：
+
+```powershell
+# 只看状态：链接是否都指回仓内真身（有问题退出码 1，可当门禁用）
+powershell -NoProfile -ExecutionPolicy Bypass -File "F:\idea-workspase-skills\dev-env-upgrade\scripts\install-shims.ps1"
+
+# 修：缺的补建、指向错的改指、旧拷贝备份后换链接
+powershell -NoProfile -ExecutionPolicy Bypass -File "F:\idea-workspase-skills\dev-env-upgrade\scripts\install-shims.ps1" -Apply
 ```
 
-`mklink` 建符号链接需要管理员权限（或开启开发者模式）。
+手工重建单个垫片（等价做法）：
+
+```bat
+cmd /c "mklink C:\Users\Administrator\.local\bin\fsend.cmd F:\idea-workspase-skills\ssh-transfer\scripts\fsend.cmd"
+```
+
+`mklink` 建符号链接需要管理员权限（或开启开发者模式）；跨卷只能符号链接，不能硬链接。
 
 ## 坑清单
 

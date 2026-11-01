@@ -19,6 +19,12 @@
 - 修改 F 仓库，全局立刻生效；在全局路径下改文件，F 仓库同步变化。
 - 日常维护只改 F 仓库（git 提交推送后全局自动一致），**不需要手动复制同步**。
 
+## PATH 垫片（与目录 junction 无关的另一套机制）
+
+`.local\bin\fsend.cmd` 是**符号链接**，指回本仓 `scripts\fsend.cmd`：`.local\bin` 在 C: 盘、本仓在 F: 盘，跨卷做不了硬链接，只能用符号链接，这样改仓内脚本 PATH 立即生效。
+
+体检/重建走 `dev-env-upgrade\scripts\install-shims.ps1`（一条命令管三个垫片，不带 `-Apply` 只体检）。`sync-check.ps1 -Fix` 只管上面的目录 junction，不会重建垫片。
+
 ## 检查是否正常
 
 ```bash

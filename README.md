@@ -75,6 +75,18 @@ PATH 垫片（跨卷只能用符号链接，硬链接会报"系统无法将文�
 cmd /c "mklink C:\Users\Administrator\.local\bin\fsend.cmd F:\idea-workspase-skills\ssh-transfer\scripts\fsend.cmd"
 ```
 
+三个垫片（`fsend` / `mvninfo` / `envcheck`）可一条命令体检或重建，脚本在 dev-env-upgrade 仓：
+
+```powershell
+# 体检：链接是否都指回仓内真身（有问题退出码 1）
+powershell -NoProfile -ExecutionPolicy Bypass -File "F:\idea-workspase-skills\dev-env-upgrade\scripts\install-shims.ps1"
+
+# 重建/修复（幂等，旧拷贝先备份成 .bak-<时间戳>）
+powershell -NoProfile -ExecutionPolicy Bypass -File "F:\idea-workspase-skills\dev-env-upgrade\scripts\install-shims.ps1" -Apply
+```
+
 ## 许可
 
 MIT
+
+最后修改：2026-11-01
