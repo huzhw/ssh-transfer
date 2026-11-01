@@ -57,10 +57,10 @@ ssh -o BatchMode=yes root@192.168.80.139 "ls -l /opt/tomcat/webapps/app.war"
 
 ```powershell
 # 只看状态：链接是否都指回仓内真身（有问题退出码 1，可当门禁用）
-powershell -NoProfile -ExecutionPolicy Bypass -File "F:\idea-workspase-skills\dev-env-upgrade\scripts\install-shims.ps1"
+powershell -NoProfile -ExecutionPolicy Bypass -File "F:\idea-workspase-skills\agent-config-sync-check\scripts\install-shims.ps1"
 
 # 修：缺的补建、指向错的改指、旧拷贝备份后换链接
-powershell -NoProfile -ExecutionPolicy Bypass -File "F:\idea-workspase-skills\dev-env-upgrade\scripts\install-shims.ps1" -Apply
+powershell -NoProfile -ExecutionPolicy Bypass -File "F:\idea-workspase-skills\agent-config-sync-check\scripts\install-shims.ps1" -Apply
 ```
 
 手工重建单个垫片（等价做法）：

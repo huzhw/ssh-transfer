@@ -79,10 +79,10 @@ cmd /c "mklink C:\Users\Administrator\.local\bin\fsend.cmd F:\idea-workspase-ski
 
 ```powershell
 # 体检：链接是否都指回仓内真身（有问题退出码 1）
-powershell -NoProfile -ExecutionPolicy Bypass -File "F:\idea-workspase-skills\dev-env-upgrade\scripts\install-shims.ps1"
+powershell -NoProfile -ExecutionPolicy Bypass -File "F:\idea-workspase-skills\agent-config-sync-check\scripts\install-shims.ps1"
 
 # 重建/修复（幂等，旧拷贝先备份成 .bak-<时间戳>）
-powershell -NoProfile -ExecutionPolicy Bypass -File "F:\idea-workspase-skills\dev-env-upgrade\scripts\install-shims.ps1" -Apply
+powershell -NoProfile -ExecutionPolicy Bypass -File "F:\idea-workspase-skills\agent-config-sync-check\scripts\install-shims.ps1" -Apply
 ```
 
 ## 许可
