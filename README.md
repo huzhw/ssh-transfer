@@ -18,6 +18,7 @@
 - [memory-ai-cleanup](https://github.com/huzhw/memory-ai-cleanup)：memory-ai 记录定期清理：删过期流水、摘索引死链、清 tmp 残留
 - [prd](https://github.com/huzhw/prd-skill)：PRD 生成器（一句话需求→结构化需求文档）
 - [ralph](https://github.com/huzhw/ralph-skill)：PRD 转 prd.json（Ralph 自主执行格式）
+- [legacy-audit](https://github.com/huzhw/legacy-audit)：屎山体检：八套静态分析工具级联扫多仓，出新增技术债清单
 
 ## 解决了什么问题
 
